@@ -14,6 +14,12 @@ spec:
         app: cloudflare-ddns
 
     spec:
+      dnsPolicy: None  # bypass CoreDNS
+      dnsConfig:
+        nameservers:
+          - 1.1.1.1  # cloudflare DNS
+        searches:
+          - api.cloudflare.com
       containers:
         - name: cloudflare-ddns
           image: timothyjmiller/cloudflare-ddns:latest
